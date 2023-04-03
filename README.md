@@ -1,6 +1,6 @@
 ## CS350 Final Project -- Online Grocery Store
 
- - [ ] Cart
+ - [ ] List item
  - [ ] Login
  - [ ] HTML
 
@@ -9,6 +9,12 @@
   
 
     git pull origin
+
+To commit to the repository
+
+     git add .
+     git commit -m "MESSAGE"
+     git push origin main
 
 Group Memebers:
 - Kiril Andrieiev
