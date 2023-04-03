@@ -1,8 +1,16 @@
-CS350 Final Project
-Online Grocery Store
+## CS350 Final Project -- Online Grocery Store
 
+ - [ ] Cart
+ - [ ] Login
+ - [ ] HTML
 
-Group Memeber:
-Kiril Andrieiev
-Busra Tas
-Eduardo Eligio
+  
+  To get the latest version of the project write in terminal 
+  
+
+    git pull origin
+
+Group Memebers:
+- Kiril Andrieiev
+- Busra Tas
+- Eduardo Eligio
