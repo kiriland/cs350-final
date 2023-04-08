@@ -1,9 +1,9 @@
 ## CS350 Final Project -- Online Grocery Store
 
- - [ ] List item
- - [ ] Login
- - [ ] HTML
-
+ - [ ] Registration Page
+ - [ ] Login Page
+ - [ ] User Authentication
+ - [ ] Database
   
   To get the latest version of the project write in terminal 
   
