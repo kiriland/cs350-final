@@ -1,5 +1,14 @@
-<html lang="en">
+<?php session_start();
+if(isset($_SESSION['user_login'])){
 
+}else {
+	//redirect to login page
+	$host  = $_SERVER['HTTP_HOST'];
+	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+	$extra = 'login.php';
+	header("Location: http://$host$uri/$extra");
+} ?>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,12 +30,12 @@
 				</ul>
 				<ul class="navbar-nav ms-md-auto">
 					<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            $USERNAME
+                            <?php echo $_SESSION['user_login']?>
                         </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">Orders</a></li>
 							<li><a class="dropdown-item" href="#">Settings</a></li>
-							<li><a class="dropdown-item" href="#">Log Out</a></li>
+							<li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -38,7 +47,7 @@
 		<main>
 			<div class="container-md">
 				<div class="row align-items-start">
-					<div class="col">
+					<div class="col ">
 						<h3>Produce</h3>
 						<div class="container text-center">
 							<div class="card-group">
