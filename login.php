@@ -1,6 +1,7 @@
 <?php session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_login'] = $_POST['InputEmail'];
+
 if(isset($_SESSION['user_login'])){ //check if logged in successfully
     //redirect to main page
     $host  = $_SERVER['HTTP_HOST'];
@@ -32,6 +33,8 @@ if(isset($_SESSION['user_login'])){ //check if logged in successfully
     <input type="password" class="form-control" id="InputPassword" name= "InputPassword"> 
   </div>
   <button type="submit" class="btn btn-primary">Log In</button>
+  <button type="" class="btn btn-primary">Register</button>
+  
 </form>
 </body>
 </html>
