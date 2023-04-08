@@ -1,0 +1,5 @@
+.product-image-med {
+    height: 150px; 
+    width: auto; 
+    object-fit: contain;
+}
