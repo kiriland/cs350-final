@@ -20,9 +20,20 @@ if(isset($_SESSION['user_login'])){ //check if logged in successfully
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<style>
+  .container{
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+     
+  }
 
+</style>
 </head>
-<body>
+<body style="background-color: lightblue">
+<div class="container">
 <form action="login.php" method="post">
   <div class="mb-3">
     <label for="InputEmail" class="form-label">Email address</label>
@@ -36,5 +47,6 @@ if(isset($_SESSION['user_login'])){ //check if logged in successfully
   <button type="" class="btn btn-primary">Register</button>
   
 </form>
+</div>
 </body>
 </html>
