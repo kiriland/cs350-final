@@ -1,6 +1,6 @@
 <?php session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['user_login'] = $_POST['InputEmail'];
+    $_SESSION['user_login'] = $_POST['Username'];
 
 if(isset($_SESSION['user_login'])){ //check if logged in successfully
     //redirect to main page
@@ -13,40 +13,71 @@ if(isset($_SESSION['user_login'])){ //check if logged in successfully
     }
 }
 ?>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<html>
+ <head>
+   <title>LOGIN PAGE</title>
 <style>
-  .container{
-    width: 80%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-     
+    * {
+    padding: 0;
+    margin: 0;
+}
+    body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    text-align: center;
   }
-
+input{
+    width: 10%;
+    padding: 10px;
+}
+  .container{
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    
+}
+.container h1 {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0;
+}
+.container p {
+    font-size: 20px;
+    margin: 15px 0;
+}
+.container input {
+    font-size: 16px;
+    width: 100%;
+    padding: 15px 10px ;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+}
+.container button{
+    width: 20%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
 </style>
 </head>
-<body style="background-color: lightblue">
-<div class="container">
-<form action="login.php" method="post">
-  <div class="mb-3">
-    <label for="InputEmail" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="InputEmail" name="InputEmail" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="InputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="InputPassword" name= "InputPassword"> 
-  </div>
-  <button type="submit" class="btn btn-primary">Log In</button>
-  <button type="" class="btn btn-primary">Register</button>
-  
-</form>
-</div>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="login.php" method="post">
+            <p>User Name</p>
+            <input type="text" name="Username" placeholder="Email">
+            <p>Password</p>
+            <input type="Password" name="Password" placeholder="......">
+            <div class="pass">Forgot Password?</div>
+            <input type="button" class="button" value="Sign In">
+            <p>Not a member? <a href="register.php">Register</a></p>
+            </div>
+        </form>
+    </div>
 </body>
+</head>
 </html>

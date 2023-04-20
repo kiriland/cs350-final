@@ -2,25 +2,57 @@
  <head>
    <title>REGISTER PAGE</title>
    <style>
-	body {
-        font-family: Arial, sans-serif;
-        background-color: lightblue;
-		text-align: center;
-      }
-	input{
-		width: 10%;
-        padding: 10px;
-	}
-	.button{
-		background-color: green;
-		color: white;
-	  }
-
+    * {
+    padding: 0;
+    margin: 0;
+}
+    body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    text-align: center;
+  }
+input{
+    width: 10%;
+    padding: 10px;
+}
+  .container{
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    
+}
+.container h1 {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0;
+}
+.container p {
+    font-size: 20px;
+    margin: 15px 0;
+}
+.container input {
+    font-size: 16px;
+    width: 100%;
+    padding: 15px 10px ;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+}
+.container button{
+    width: 20%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
    </style>
  </head>
  
  <body>
-    <br>
+    <div class="container">
+      
 		<h1>Create account</h1>
 		<form>
 			<label for="full name"><b>Full Name</b></label>
@@ -59,11 +91,12 @@
 
 			<input type="button" class="button" value="Register">
 
-			<p>Already have an account? <a href="Login.html">Sign In Here</a></p>
+			<p>Already have an account? <a href="login.php">Sign In Here</a></p>
 
 
 		</form>
 
+    </div>
   
  </body>
 
