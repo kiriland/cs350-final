@@ -56,9 +56,8 @@ input{
     outline: none;
     border-radius: 5px;
 }
-.container button{
-    width: 20%;
-    padding: 10px;
+.container .button{
+    margin-top:5%;
     background-color: green;
     color: white;
 }
@@ -71,9 +70,9 @@ input{
             <p>User Name</p>
             <input type="text" name="Username" placeholder="Email">
             <p>Password</p>
-            <input type="Password" name="Password" placeholder="......">
+            <input type="Password" name="Password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
             <div class="pass">Forgot Password?</div>
-            <input type="button" class="button" value="Sign In">
+            <input type="submit" class="button" value="Sign In">
             <p>Not a member? <a href="register.php">Register</a></p>
             </div>
         </form>

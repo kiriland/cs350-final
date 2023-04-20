@@ -41,9 +41,8 @@ input{
     outline: none;
     border-radius: 5px;
 }
-.container button{
-    width: 20%;
-    padding: 10px;
+.container .button{
+    margin-top:5%;
     background-color: green;
     color: white;
 }
@@ -54,53 +53,21 @@ input{
     <div class="container">
       
 		<h1>Create account</h1>
-		<form>
-			<label for="full name"><b>Full Name</b></label>
-			<br>
-			<input type="text" placeholder="Enter your full name">
-
-			<br>
-			<br>
-			<label for="email"><b>Email</b></label>
-			<br>
-			<input type="text" placeholder="Enter your email">
-
-			<br>
-			<br>
-
-			<label for="username"><b>Username</b></label>
-			<br>
-			<input type="text" placeholder="Enter your username">
-
-			<br>
-			<br>
-
-			<label for="password"><b>Password</b></label>
-			<br>
-			<input type="password" placeholder="Enter your password">
-
-			<br>
-			<br>
-
-			<label for="password"><b>Re-enter Password</b></label>
-			<br>
-			<input type="password" placeholder="Re-enter password">
-			
-			<br>
-			<br>
-
-			<input type="button" class="button" value="Register">
-
-			<p>Already have an account? <a href="login.php">Sign In Here</a></p>
-
-
-		</form>
-
+      <form>
+        <label for="full name"><p>Full Name</p></label>
+        <input type="text" placeholder="Enter your full name">
+        <label for="email"><p>Email</p></label>
+        <input type="text" placeholder="Enter your email">
+        <label for="username"><p>Username</p></label>
+        <input type="text" placeholder="Enter your username">
+        <label for="password"><p>Password</p></label>
+        <input type="password" placeholder="Enter your password">
+        <label for="password"><p>Re-enter Password</p></label>
+        <input type="password" placeholder="Re-enter password">
+        <input type="submit" class="button" value="Register">
+        <p>Already have an account? <a href="login.php">Sign In Here</a></p>
+      </form>
     </div>
   
  </body>
-
-
-
-
 </html>
