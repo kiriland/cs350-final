@@ -1,0 +1,16 @@
+CREATE DATABASE csc350_final;
+
+USE csc350_final;
+
+CREATE TABLE users (
+user_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+username VARCHAR(30) NOT NULL,
+pass CHAR(40) NOT NULL,
+first_name VARCHAR(20) NOT NULL,
+last_name VARCHAR(40) NOT NULL,
+email VARCHAR(60) NOT NULL,
+PRIMARY KEY (user_id),
+UNIQUE (username),
+UNIQUE (email),
+INDEX login (pass, email)
+) ENGINE = INNODB;

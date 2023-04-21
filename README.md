@@ -1,12 +1,20 @@
+
 ## CS350 Final Project -- Online Grocery Store
 
- - [x] Registration Page
- - [x] Login Page
+ - [x] Registration Page Design
+ - [x] Login Page Design
+ - [ ] User Registration - Partially done, no validation of entries. 
  - [ ] User Authentication
  - [ ] Database Storage of Products
+
+In order for us to have the same database structure, I created a **database.txt** . Just copy and paste the queries and we will have the same working version of the database. If someone will make changes to the database, we will have to delete our local version of the database and create the one that is up to date from the **database.txt**.
+
+To delete local database
+
+    DROP DATABASE csc350_final;
+
   
   To get the latest version of the project write in terminal 
-  
 
     git pull origin
 

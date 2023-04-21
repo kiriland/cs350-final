@@ -1,3 +1,23 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  require 'mysqli_connect.php'; //This opens a connection to the database and creates a $dbc variable that we can later use to perform database queries on.
+  $Username = $_POST['username'];
+  $Pass = $_POST['password'];
+  $FName = $_POST['firstname'];
+  $LName = $_POST['lastname'];
+  $Email = $_POST['email'];
+  $query = "INSERT INTO users (username, pass, first_name, last_name, email) VALUES 
+  ('{$Username}', SHA1('{$Pass}'), '{$FName}', '{$LName}', '{$Email}')";
+  if (mysqli_query($dbc, $query)) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($dbc);
+  }
+  mysqli_close($dbc);
+}
+
+?>
+
 <html>
  <head>
    <title>REGISTER PAGE</title>
@@ -53,15 +73,18 @@ input{
     <div class="container">
       
 		<h1>Create account</h1>
-      <form>
-        <label for="full name"><p>Full Name</p></label>
-        <input type="text" placeholder="Enter your full name">
+      <form method="post" action="register.php">
+        <?php echo $LName;?>
+        <label for="firstname"><p>First Name</p></label>
+        <input type="text" name="firstname" placeholder="Enter your first name">
+        <label for="lastname"><p>Last Name</p></label>
+        <input type="text" name="lastname" placeholder="Enter your last name">
         <label for="email"><p>Email</p></label>
-        <input type="text" placeholder="Enter your email">
+        <input type="email" name="email" placeholder="Enter your email">
         <label for="username"><p>Username</p></label>
-        <input type="text" placeholder="Enter your username">
+        <input type="text" name="username" placeholder="Enter your username">
         <label for="password"><p>Password</p></label>
-        <input type="password" placeholder="Enter your password">
+        <input type="password" name="password" placeholder="Enter your password">
         <label for="password"><p>Re-enter Password</p></label>
         <input type="password" placeholder="Re-enter password">
         <input type="submit" class="button" value="Register">

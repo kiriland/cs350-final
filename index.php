@@ -2,7 +2,7 @@
 if(isset($_SESSION['user_login'])){
 
 }else {
-	//redirect to login page
+	//redirect to login page id the user is not logged in.
 	$host  = $_SERVER['HTTP_HOST'];
 	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 	$extra = 'login.php';
