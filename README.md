@@ -13,7 +13,7 @@ git clone https://github.com/kiriland/cs350-final.git
 
 /Applications/xampp/xamppfiles/bin/mysql -u root -p
 
-5. Inside the MySQL console paste each entry from the file **database.txt** to the terminal, creating new database and new tables.
+5. Inside the MySQL console paste each query from the file **database.txt** to the terminal, creating new database and new tables.
 
 ## Tasks needed to be done
  
@@ -27,7 +27,7 @@ git clone https://github.com/kiriland/cs350-final.git
 
 ## Working with the Database
 
-In order for us to have the same database structure, I created a **database.txt** . Just copy and paste the queries and we will have the same working version of the database. If someone will make changes to the database, we will have to delete our local version of the database and create the one that is up to date from the **database.txt**.
+In order for us to have the same database structure, I created a **database.txt** . Just copy and paste the queries one query at a time to your MySQL console and all of us will have the same working version of the database. If someone will make changes to the database, we will have to delete our local version of the database and create the one that is up to date with the **database.txt**.
 
 To delete local database, open MySQL console and drop(delete) the database. This is in case someone updates the **database.txt**:
 
@@ -49,11 +49,11 @@ To open MySQL console on Mac, type in the Terminal
 
 ## Working with git
 
-  **!! IMPORTANT !!** To get the latest version of the project write in terminal. **MAKE SURE TO RUN THIS EVERY TIME YOU START WORKING ON ANYTHING TO  GUARANTEE THAT YOU ARE WORKING ON THE LATEST VERSION OF THE PROJECT AND AVOID MERGE PROBLEMS IN THE FUTURE!**
+  **!! IMPORTANT !!** To get the latest version of the project, run this command in terminal while in the directory of the project. **MAKE SURE TO RUN THIS EVERY TIME YOU START WORKING ON ANYTHING TO  GUARANTEE THAT YOU ARE WORKING ON THE LATEST VERSION OF THE PROJECT AND TO AVOID MERGE PROBLEMS IN THE FUTURE!**
 
     git pull origin
 
-To commit to the repository (upload the files you worked on):
+To commit to the repository (upload the files you worked on), run this command in terminal while in the directory of the project.:
 
      git add .
      git commit -m "MESSAGE describing the work you have done"
