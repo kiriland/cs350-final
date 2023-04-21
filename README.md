@@ -40,6 +40,13 @@ To open MySQL console on Mac, type in the Terminal
 
     mysql -u root -p
 
+
+**!! IMPORTANT !!** If you need to make changes to **mysqli_connect.php**, for example to adjust the MySQL username or password, make sure to write the command below before editing the file. The reason is so that your changes to the file will not break the connection for others when you commit and push your work.
+
+  
+
+    git update-index --skip-worktree mysqli_connect.php
+
 ## Working with git
 
   **!! IMPORTANT !!** To get the latest version of the project write in terminal. **WRITE THIS BEFORE YOU START WORKING ON ANYTHING TO AVOID MERGE PROBLEMS!**
@@ -52,11 +59,6 @@ To commit to the repository (upload the files you worked on):
      git commit -m "MESSAGE describing the work you have done"
      git push origin main
 
-**!! IMPORTANT !!** If you need to make changes to mysqli_connect.php, adjusting the username or password, make sure to write the command below before doing so. It is done so that your changes will not break the file for others, and won't be tracked by the git.
-
-  
-
-    git update-index --skip-worktree mysqli_connect.php
 
 Group Memebers:
 - Kiril Andrieiev
