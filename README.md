@@ -13,11 +13,11 @@ git clone https://github.com/kiriland/cs350-final.git
 
 /Applications/xampp/xamppfiles/bin/mysql -u root -p
 
-5. Inside the MySQL console paste each query from the file **database.txt** to the terminal, creating new database and new tables.
+5. Inside the MySQL console paste and execute each query from the file **database.txt**, creating new database and new tables.
 
 ## Tasks needed to be done
  
- - [ ] User Registration - Partially done, no validation of the form. 
+ - [ ] User Registration - Partially done, no validation of the registration form (passwords don't have to be the same when asked to be re-entered, etc). 
  - [ ] User Login
  - [ ] Storing the user's session
  - [ ] Editing User's Password
