@@ -1,9 +1,4 @@
 <?php 
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
 session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_login'] = $_POST['Username'];

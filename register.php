@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $query = "INSERT INTO users (username, pass, first_name, last_name, email) VALUES 
   ('{$Username}', SHA1('{$Pass}'), '{$FName}', '{$LName}', '{$Email}')";
   if (mysqli_query($dbc, $query)) {
-    echo "New record created successfully";
+    echo "Successfuly Registered a new user! Welcome, {$Username}!";
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($dbc);
   }

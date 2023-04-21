@@ -1,6 +1,11 @@
 
 ## CS350 Final Project -- Online Grocery Store
+!!IMPORTANT!! Before you make changes to mysqli_connect.php make sure to write the command below, so that your changes will not break the file for others.
 
+    git update-index --skip-worktree mysqli_connect.php
+  
+
+## Todo
  - [x] Registration Page Design
  - [x] Login Page Design
  - [ ] User Registration - Partially done, no validation of entries. 
