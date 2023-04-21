@@ -49,7 +49,7 @@ To open MySQL console on Mac, type in the Terminal
 
 ## Working with git
 
-  **!! IMPORTANT !!** To get the latest version of the project write in terminal. **WRITE THIS BEFORE YOU START WORKING ON ANYTHING TO AVOID MERGE PROBLEMS!**
+  **!! IMPORTANT !!** To get the latest version of the project write in terminal. **MAKE SURE TO RUN THIS EVERY TIME YOU START WORKING ON ANYTHING TO  GUARANTEE THAT YOU ARE WORKING ON THE LATEST VERSION OF THE PROJECT AND AVOID MERGE PROBLEMS IN THE FUTURE!**
 
     git pull origin
 
