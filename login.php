@@ -1,8 +1,18 @@
 <?php 
 session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['user_login'] = $_POST['Username'];
-
+    $_SESSION['user_login'] = $_POST['Username']; 
+    require 'mysqli_connect.php';
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    $sql = "SELECT user_id FROM user WHERE username = '{$Username}' and pass = '{$Password}'";
+    if (mysqli_query($dbc, $sql)) {
+        echo "Successfuly Logged In {$Username}!";
+      } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($dbc);
+      }
+      mysqli_close($dbc);
+      
 if(isset($_SESSION['user_login'])){ //check if logged in successfully
     //redirect to main page
     $host  = $_SERVER['HTTP_HOST'];
