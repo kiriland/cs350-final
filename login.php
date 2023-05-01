@@ -2,6 +2,7 @@
 session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_login'] = $_POST['Username'];
+    $_SESSION['cart'] = array();
 
 if(isset($_SESSION['user_login'])){ //check if logged in successfully
     //redirect to main page
