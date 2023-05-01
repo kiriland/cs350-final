@@ -1,6 +1,7 @@
 <?php 
 session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+<<<<<<< HEAD
     $_SESSION['user_login'] = $_POST['Username']; 
     require 'mysqli_connect.php';
     $Username = $_POST['Username'];
@@ -13,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
       mysqli_close($dbc);
       
+=======
+    $_SESSION['user_login'] = $_POST['Username'];
+    $_SESSION['cart'] = array();
+
+>>>>>>> origin/main
 if(isset($_SESSION['user_login'])){ //check if logged in successfully
     //redirect to main page
     $host  = $_SERVER['HTTP_HOST'];

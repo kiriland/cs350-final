@@ -1,4 +1,12 @@
 <?php session_start();
+function printCart() {
+	// if ($_SESSION['user_login'] && count($_SESSION['cart']) > 0){
+	// 	return count($_SESSION['cart']);
+	// } else {
+	// 	return 0;
+	// }
+	return count($_SESSION['cart']);
+  }
 if(isset($_SESSION['user_login'])){
 
 }else {
@@ -15,6 +23,7 @@ if(isset($_SESSION['user_login'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Online Grocery Store </title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/style.css"> </head>
 
 <body>
@@ -29,6 +38,7 @@ if(isset($_SESSION['user_login'])){
 					<li class="nav-item"> <a class="nav-link" href="#">About Us</a> </li>
 				</ul>
 				<ul class="navbar-nav ms-md-auto">
+				<button type="button" class="btn btn-outline-primary">Cart <?php echo printCart()?></button>
 					<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo $_SESSION['user_login']?>
                         </a>
@@ -56,6 +66,8 @@ if(isset($_SESSION['user_login'])){
 										<h5 class="card-title">Persian Cucumbers</h5>
 										<p class="card-text">Description</p>
 										<p class="card-text"><small class="text-body-secondary">1 lb</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
+
 									</div>
 								</div>
 								<div class="card"> <img src="https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg" width="200" height="auto" class="card-img-top product-image-med" alt="...">
@@ -63,6 +75,7 @@ if(isset($_SESSION['user_login'])){
 										<h5 class="card-title">Vine Tomatoes</h5>
 										<p class="card-text">Description</p>
 										<p class="card-text"><small class="text-body-secondary">1.5 lb</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
 									</div>
 								</div>
 								<div class="card"> <img src="http://gastronomt.ru/upload/iblock/15c/46302.jpg" class="card-img-top product-image-med" alt="...">
@@ -70,6 +83,7 @@ if(isset($_SESSION['user_login'])){
 										<h5 class="card-title">Celery</h5>
 										<p class="card-text">Description</p>
 										<p class="card-text"><small class="text-body-secondary">24 oz </small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
 									</div>
 								</div>
 								<div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
@@ -77,6 +91,7 @@ if(isset($_SESSION['user_login'])){
 										<h5 class="card-title">Organic Avocados</h5>
 										<p class="card-text">Description</p>
 										<p class="card-text"><small class="text-body-secondary">4 cts</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
 									</div>
 								</div>
 								<div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
@@ -84,6 +99,7 @@ if(isset($_SESSION['user_login'])){
 										<h5 class="card-title">Organic Avocados</h5>
 										<p class="card-text">Description</p>
 										<p class="card-text"><small class="text-body-secondary">4 cts</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
 									</div>
 								</div>
                                 <div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
@@ -91,6 +107,7 @@ if(isset($_SESSION['user_login'])){
 										<h5 class="card-title">Organic Avocados</h5>
 										<p class="card-text">Description</p>
 										<p class="card-text"><small class="text-body-secondary">4 cts</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
 									</div>
 								</div>
 							</div>
@@ -107,6 +124,7 @@ if(isset($_SESSION['user_login'])){
                                         <h5 class="card-title">Persian Cucumbers</h5>
                                         <p class="card-text">Description</p>
                                         <p class="card-text"><small class="text-body-secondary">1 lb</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="card"> <img src="https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg" width="200" height="auto" class="card-img-top product-image-med" alt="...">
@@ -114,6 +132,7 @@ if(isset($_SESSION['user_login'])){
                                         <h5 class="card-title">Vine Tomatoes</h5>
                                         <p class="card-text">Description</p>
                                         <p class="card-text"><small class="text-body-secondary">1.5 lb</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="card"> <img src="https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg" width="200" height="auto" class="card-img-top product-image-med" alt="...">
@@ -121,6 +140,7 @@ if(isset($_SESSION['user_login'])){
                                         <h5 class="card-title">Vine Tomatoes</h5>
                                         <p class="card-text">Description</p>
                                         <p class="card-text"><small class="text-body-secondary">1.5 lb</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="card"> <img src="http://gastronomt.ru/upload/iblock/15c/46302.jpg" class="card-img-top product-image-med" alt="...">
@@ -128,6 +148,7 @@ if(isset($_SESSION['user_login'])){
                                         <h5 class="card-title">Celery</h5>
                                         <p class="card-text">Description</p>
                                         <p class="card-text"><small class="text-body-secondary">24 oz </small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
@@ -135,6 +156,7 @@ if(isset($_SESSION['user_login'])){
                                         <h5 class="card-title">Organic Avocados</h5>
                                         <p class="card-text">Description</p>
                                         <p class="card-text"><small class="text-body-secondary">4 cts</small></p>
+										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
@@ -142,6 +164,7 @@ if(isset($_SESSION['user_login'])){
                                         <h5 class="card-title">Organic Avocados</h5>
                                         <p class="card-text">Description</p>
                                         <p class="card-text"><small class="text-body-secondary">4 cts</small></p>
+										<button type="button" id="boo" class="btn btn-primary btn-sm">Add to cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +174,20 @@ if(isset($_SESSION['user_login'])){
 			</div>
 	</main>
 	</div>
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
+<script language="javascript">
+$('.btn').click(function(){
+	var itemName = $(this).prev().prev().prev().text();
+  $.ajax({
+    url:'checkout.php',
+    type:'POST',
+	data: { function: "addToCart", itemId: itemName },
+    success:function(data){	
+    window.alert(data);
+    }
+  });
+})
+	</script>
 </html>
