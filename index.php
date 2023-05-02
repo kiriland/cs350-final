@@ -1,20 +1,10 @@
 <?php session_start();
 function printCart() {
-	// if ($_SESSION['user_login'] && count($_SESSION['cart']) > 0){
-	// 	return count($_SESSION['cart']);
-	// } else {
-	// 	return 0;
-	// }
 	return count($_SESSION['cart']);
   }
-if(isset($_SESSION['user_login'])){
-
-}else {
-	//redirect to login page id the user is not logged in.
-	$host  = $_SERVER['HTTP_HOST'];
-	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	$extra = 'login.php';
-	header("Location: http://$host$uri/$extra");
+if(!isset($_SESSION['user_id'])){
+	header('Location: /login.php');
+    die;
 } ?>
 <html lang="en">
 <head>
@@ -38,9 +28,9 @@ if(isset($_SESSION['user_login'])){
 					<li class="nav-item"> <a class="nav-link" href="#">About Us</a> </li>
 				</ul>
 				<ul class="navbar-nav ms-md-auto">
-				<button type="button" class="btn btn-outline-primary">Cart <?php echo printCart()?></button>
+				<button type="button" class="btn btn-outline-primary">Cart <span><?php echo printCart()?></span></button>
 					<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo $_SESSION['user_login']?>
+                            <?php echo $_SESSION['first_name']?>
                         </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">Orders</a></li>
@@ -60,56 +50,44 @@ if(isset($_SESSION['user_login'])){
 					<div class="col ">
 						<h3>Produce</h3>
 						<div class="container text-center">
-							<div class="card-group">
-								<div class="card"> <img src="https://www.bestfreshinc.com/wp-content/uploads/2017/09/Persian-Cucumbers-1.jpg" class="card-img-top product-image-med" alt="...">
-									<div class="card-body">
-										<h5 class="card-title">Persian Cucumbers</h5>
-										<p class="card-text">Description</p>
-										<p class="card-text"><small class="text-body-secondary">1 lb</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-
-									</div>
-								</div>
-								<div class="card"> <img src="https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg" width="200" height="auto" class="card-img-top product-image-med" alt="...">
-									<div class="card-body">
-										<h5 class="card-title">Vine Tomatoes</h5>
-										<p class="card-text">Description</p>
-										<p class="card-text"><small class="text-body-secondary">1.5 lb</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-									</div>
-								</div>
-								<div class="card"> <img src="http://gastronomt.ru/upload/iblock/15c/46302.jpg" class="card-img-top product-image-med" alt="...">
-									<div class="card-body">
-										<h5 class="card-title">Celery</h5>
-										<p class="card-text">Description</p>
-										<p class="card-text"><small class="text-body-secondary">24 oz </small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-									</div>
-								</div>
-								<div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
-									<div class="card-body">
-										<h5 class="card-title">Organic Avocados</h5>
-										<p class="card-text">Description</p>
-										<p class="card-text"><small class="text-body-secondary">4 cts</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-									</div>
-								</div>
-								<div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
-									<div class="card-body">
-										<h5 class="card-title">Organic Avocados</h5>
-										<p class="card-text">Description</p>
-										<p class="card-text"><small class="text-body-secondary">4 cts</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-									</div>
-								</div>
-                                <div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
-									<div class="card-body">
-										<h5 class="card-title">Organic Avocados</h5>
-										<p class="card-text">Description</p>
-										<p class="card-text"><small class="text-body-secondary">4 cts</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-									</div>
-								</div>
+				
+							<?php
+							require 'mysqli_connect.php';
+							$query = 'SELECT product_title, product_img, product_description, product_price FROM products';
+							$result = mysqli_query($dbc, $query);
+							$countItems = 0;
+							while ($row = mysqli_fetch_assoc($result)) {
+								$title = htmlspecialchars($row['product_title']);
+								$img = htmlspecialchars($row['product_img']);
+								$description = htmlspecialchars($row['product_description']);
+								$price = htmlspecialchars($row['product_price']);
+								$html = '';
+								// Generate HTML output using the data from the current row
+								if ($countItems == 0 ) {
+									$html .= '<div class="card-group">';
+								}elseif ($countItems % 6 === 0) {
+									$html .= '</div>';
+									$html .= '<div class="card-group">';
+								}
+								$html .= '<div class="card">';
+								$html .= '<img src="' . $img . '" class="card-img-top product-image-med" alt="' . $title . '">';
+								$html .= '<div class="card-body">';
+								$html .= '<h5 class="card-title">' . $title . '</h5>';
+								$html .= '<p class="card-text">' . $description . '</p>';
+								$html .= '<p class="card-text"><small class="text-body-secondary">' .$price. '</small></p>';
+								$html .= '<button type="button" class="btn btn-primary btn-sm">Add to cart</button>';
+								$html .= '</div></div>';
+								// if ($countItems == 0 || $countItems % 6 === 0) {
+								// 	$html .= '</div>';
+								// }
+								$countItems++;
+								// Output the HTML for the current row
+								echo $html;
+	
+							}
+							// Close the database connection
+							mysqli_close($dbc);
+							?>
 							</div>
 						</div>
 					</div>
@@ -185,7 +163,7 @@ $('.btn').click(function(){
     type:'POST',
 	data: { function: "addToCart", itemId: itemName },
     success:function(data){	
-    window.alert(data);
+    $('.btn-outline-primary span').text(data);
     }
   });
 })

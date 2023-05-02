@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   require 'mysqli_connect.php'; //This opens a connection to the database and creates a $dbc variable that we can later use to perform database queries on.
   $Username = $_POST['username'];
-  $Pass = $_POST['password'];
+  $Password = $_POST['password'];
   $FName = $_POST['firstname'];
   $LName = $_POST['lastname'];
   $Email = $_POST['email'];

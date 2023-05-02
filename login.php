@@ -1,32 +1,34 @@
 <?php 
 session_start(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    $_SESSION['user_login'] = $_POST['Username']; 
     require 'mysqli_connect.php';
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];
-    $sql = "SELECT user_id FROM user WHERE username = '{$Username}' and pass = '{$Password}'";
-    if (mysqli_query($dbc, $sql)) {
-        echo "Successfuly Logged In {$Username}!";
-      } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($dbc);
+    $query = "SELECT user_id,username,first_name,last_name,email FROM users WHERE username = '{$Username}' and pass = SHA1('{$Password}')";
+    $result = mysqli_query($dbc, $query);
+    if ($result) {
+        if ($row = mysqli_fetch_assoc($result)) {
+            echo "Successfuly Logged In {$Username}!";
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['last_name'] = $row['last_name'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['cart'] = array();
+            header('Location: /index.php');
+            die;
+        }else {
+            echo "Wrong username or password! Try again";
+        }
+    } 
+    else {
+        echo "Error: " . $query . "<br>" . mysqli_error($dbc);
       }
-      mysqli_close($dbc);
-      
+    mysqli_close($dbc);
 
-    $_SESSION['user_login'] = $_POST['Username'];
-    $_SESSION['cart'] = array();
-
-
-if(isset($_SESSION['user_login'])){ //check if logged in successfully
-    //redirect to main page
-    $host  = $_SERVER['HTTP_HOST'];
-    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-    $extra = 'index.php';
-    header("Location: http://$host$uri/$extra");
-    }else{
-    // Not logged in :(
+if(isset($_SESSION['user_id'])){ //check if already logged in successfully
+    header('Location: /index.php');
+    die;
     }
 }
 ?>
