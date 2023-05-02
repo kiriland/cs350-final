@@ -125,7 +125,7 @@ $(document.body).on('click', '.btn-sm', function(){
   $.ajax({
     url:'checkout.php',
     type:'GET',
-	data: { function: "getTotalCartNumber", productID: productID },
+	data: { function: "getTotalCartNumber"},
     success:function(data){	$('.cart-itemNumber').each(function(){
 		$(this).text(data);
 	});}
@@ -148,7 +148,7 @@ $(document.body).on('click', '.fa-trash-alt', function(){
   $.ajax({
     url:'checkout.php',
     type:'GET',
-	data: { function: "getTotalCartNumber", productID: productID },
+	data: { function: "getTotalCartNumber" },
     success:function(data){	$('.cart-itemNumber').each(function(){
 		$(this).text(data);
 	});}
