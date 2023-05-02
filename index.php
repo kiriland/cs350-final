@@ -43,51 +43,14 @@ if(!isset($_SESSION['user_id'])){
 		</div>
 	</nav>
 	<!-- Main block -->
-	<div class="container">
+	<div class="container-fluid">
 		<main>
-			<div class="container-md">
+			<div class="container-xxl">
 				<div class="row align-items-start">
-					<div class="col ">
+					<div class="col" id="produce">
 						<h3>Produce</h3>
 						<div class="container text-center">
-				
-							<?php
-							require 'mysqli_connect.php';
-							$query = 'SELECT product_title, product_img, product_description, product_price FROM products';
-							$result = mysqli_query($dbc, $query);
-							$countItems = 0;
-							while ($row = mysqli_fetch_assoc($result)) {
-								$title = htmlspecialchars($row['product_title']);
-								$img = htmlspecialchars($row['product_img']);
-								$description = htmlspecialchars($row['product_description']);
-								$price = htmlspecialchars($row['product_price']);
-								$html = '';
-								// Generate HTML output using the data from the current row
-								if ($countItems == 0 ) {
-									$html .= '<div class="card-group">';
-								}elseif ($countItems % 6 === 0) {
-									$html .= '</div>';
-									$html .= '<div class="card-group">';
-								}
-								$html .= '<div class="card">';
-								$html .= '<img src="' . $img . '" class="card-img-top product-image-med" alt="' . $title . '">';
-								$html .= '<div class="card-body">';
-								$html .= '<h5 class="card-title">' . $title . '</h5>';
-								$html .= '<p class="card-text">' . $description . '</p>';
-								$html .= '<p class="card-text"><small class="text-body-secondary">' .$price. '</small></p>';
-								$html .= '<button type="button" class="btn btn-primary btn-sm">Add to cart</button>';
-								$html .= '</div></div>';
-								// if ($countItems == 0 || $countItems % 6 === 0) {
-								// 	$html .= '</div>';
-								// }
-								$countItems++;
-								// Output the HTML for the current row
-								echo $html;
-	
-							}
-							// Close the database connection
-							mysqli_close($dbc);
-							?>
+							<div class="row row-cols-1 row-cols-md-6 g-1">
 							</div>
 						</div>
 					</div>
@@ -156,16 +119,20 @@ if(!isset($_SESSION['user_id'])){
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 <script language="javascript">
-$('.btn').click(function(){
+//Dynamically load the products on the page.
+$.ajax({url: "checkout.php",type:'GET',data: { function: "getProducts"}}).done(function( html ) {
+    $("#produce > .container > .row").append(html);
+});
+
+//When clicked on add to cart, perform actions.
+$(document.body).on('click', '.btn-sm', function(){
 	var itemName = $(this).prev().prev().prev().text();
   $.ajax({
     url:'checkout.php',
     type:'POST',
 	data: { function: "addToCart", itemId: itemName },
-    success:function(data){	
-    $('.btn-outline-primary span').text(data);
-    }
+    success:function(data){	$('.btn-outline-primary span').text(data);}
   });
-})
+});
 	</script>
 </html>

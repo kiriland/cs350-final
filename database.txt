@@ -25,10 +25,10 @@ PRIMARY KEY (product_id)
 ) ENGINE = INNODB;
 
 INSERT INTO products (product_title, product_img, product_description, product_price) VALUES
-('Persian Cucumbers', 'https://www.bestfreshinc.com/wp-content/uploads/2017/09/Persian-Cucumbers-1.jpg', 'Fresh and crisp Persian cucumbers', 2.99),
+('Persian Cucumbers', 'https://www.bestfreshinc.com/wp-content/uploads/2017/09/Persian-Cucumbers-1.jpg', 'Fresh and crisp', 2.99),
 ('Vine Tomatoes', 'https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg', 'Juicy and ripe vine tomatoes', 3.49),
 ('Celery', 'http://gastronomt.ru/upload/iblock/15c/46302.jpg', 'Crunchy and flavorful celery stalks', 1.99),
-('Organic Avocados', 'https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033', 'Creamy and delicious organic avocados', 4.99),
+('Organic Avocados', 'https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033', 'Creamy and delicious', 4.99),
 ('Orange Juice', 'https://i5.peapod.com/c/L6/L653H.png', 'Freshly squeezed orange juice', 4.99),
 ('Pears', 'https://askthefoodgeek.com/wp-content/uploads/2017/02/pears-in-season.jpg', 'Juicy and sweet pears', 2.49),
 ('Eggs', 'https://live.staticflickr.com/4854/46699166472_4613e6a95d_b.jpg', 'Farm-fresh eggs', 1.99),
