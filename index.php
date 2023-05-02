@@ -37,7 +37,7 @@ if (!isset($_SESSION["user_id"])) {
             </li>
           </ul>
           <ul class="navbar-nav ms-md-auto">
-            <button type="button" class="btn btn-outline-primary" id="cart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Cart <span class="cart-itemNumber"> <?php echo getNumberOfItemsInCart(); ?> </span>
+            <button type="button" class="btn btn-outline-primary" id="cart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Cart <span class="cart-itemNumber"> </span>
             </button>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <?php echo $_SESSION["first_name"] ." " .$_SESSION["last_name"]; ?> </a>
