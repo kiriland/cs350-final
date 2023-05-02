@@ -1,11 +1,18 @@
 <?php session_start();
-function printCart() {
-	return count($_SESSION['cart']);
-  }
-if(!isset($_SESSION['user_id'])){
-	header('Location: /login.php');
-    die;
-} ?>
+function getNumberOfItemsInCart()
+{
+    $totalItems = 0;
+    foreach ($_SESSION["cart"] as $item => $value) {
+        //count total items in the cart
+        $totalItems += intval($value);
+    }
+    return $totalItems;
+}
+if (!isset($_SESSION["user_id"])) {
+    header("Location: /login.php");
+    die();
+}
+?>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -15,7 +22,7 @@ if(!isset($_SESSION['user_id'])){
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/style.css"> </head>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
@@ -28,9 +35,11 @@ if(!isset($_SESSION['user_id'])){
 					<li class="nav-item"> <a class="nav-link" href="#">About Us</a> </li>
 				</ul>
 				<ul class="navbar-nav ms-md-auto">
-				<button type="button" class="btn btn-outline-primary">Cart <span><?php echo printCart()?></span></button>
+				<button type="button" class="btn btn-outline-primary" id="cart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Cart <span class="cart-itemNumber"><?php echo getNumberOfItemsInCart(); ?></span></button>
 					<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo $_SESSION['first_name'] ." ". $_SESSION['last_name']?>
+                            <?php echo $_SESSION["first_name"] .
+                                " " .
+                                $_SESSION["last_name"]; ?>
                         </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">Orders</a></li>
@@ -42,6 +51,31 @@ if(!isset($_SESSION['user_id'])){
 			</div>
 		</div>
 	</nav>
+	<!-- Cart Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 " id="exampleModalLabel">Shopping cart</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <div >
+        <p class="mb-0">You have <span class="cart-itemNumber"><?php echo getNumberOfItemsInCart(); ?></span> items in your cart</p>
+        </div>
+		<div id="cart-body">
+		<!-- Cart Items go here -->	
+		</div>
+</div>
+	  
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
 	<!-- Main block -->
 	<div class="container-fluid">
 		<main>
@@ -80,16 +114,47 @@ $.ajax({url: "checkout.php",type:'GET',data: { function: "getProduce"}}).done(fu
 $.ajax({url: "checkout.php",type:'GET',data: { function: "getBakery"}}).done(function( html ) {
     $("#bakery > .container > .row").append(html);
 });
-
 //When clicked on add to cart, perform actions.
 $(document.body).on('click', '.btn-sm', function(){
-	var itemName = $(this).prev().prev().prev().text();
+	var productID = $(this).attr('id');
   $.ajax({
     url:'checkout.php',
     type:'POST',
-	data: { function: "addToCart", itemId: itemName },
-    success:function(data){	$('.btn-outline-primary span').text(data);}
+	data: { function: "addToCart", productID: productID },
+  });
+  $.ajax({
+    url:'checkout.php',
+    type:'GET',
+	data: { function: "getTotalCartNumber", productID: productID },
+    success:function(data){	$('.cart-itemNumber').each(function(){
+		$(this).text(data);
+	});}
   });
 });
+$(document.body).on('click', '#cart-button', function(){
+	$.ajax({url: "checkout.php",
+		type:'GET',
+		data: { function: "getCart"}}).done(function( html ) {
+    		$("#cart-body").html(html);
+});
+});
+$(document.body).on('click', '.fa-trash-alt', function(){
+	var productID = $(this).data("id");
+	$.ajax({url: "checkout.php",
+		type:'POST',
+		data: { function: "deleteProduct", productID: productID },
+    success:function(html){	$("#cart-body").html(html);}
+  });
+  $.ajax({
+    url:'checkout.php',
+    type:'GET',
+	data: { function: "getTotalCartNumber", productID: productID },
+    success:function(data){	$('.cart-itemNumber').each(function(){
+		$(this).text(data);
+	});}
+  });
+});
+
+
 	</script>
 </html>
