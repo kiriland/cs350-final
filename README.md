@@ -20,10 +20,9 @@ git clone https://github.com/kiriland/cs350-final.git
  - [ ] User Registration - Partially done, no validation of the registration form (passwords don't have to be the same when asked to be re-entered, etc). 
  - [x] User Login
  - [x] Storing the user's session
- - [ ] Editing User's Password
- - [ ] Adding to products to cart
+ - [x] Adding to products to cart
  - [ ] Checking out the cart
- - [ ] Database Storage of Products
+ - [x] Database Storage of Products
 
 ## Working with the Database
 
