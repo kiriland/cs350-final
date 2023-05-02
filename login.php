@@ -87,7 +87,7 @@ input{
         <h1>Login</h1>
         <form action="login.php" method="post">
             <p>User Name</p>
-            <input type="text" name="Username" placeholder="Email">
+            <input type="text" name="Username" placeholder="Enter your Username">
             <p>Password</p>
             <input type="Password" name="Password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
             <div class="pass">Forgot Password?</div>

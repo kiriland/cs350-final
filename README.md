@@ -18,8 +18,8 @@ git clone https://github.com/kiriland/cs350-final.git
 ## Tasks needed to be done
  
  - [ ] User Registration - Partially done, no validation of the registration form (passwords don't have to be the same when asked to be re-entered, etc). 
- - [ ] User Login
- - [ ] Storing the user's session
+ - [x] User Login
+ - [x] Storing the user's session
  - [ ] Editing User's Password
  - [ ] Adding to products to cart
  - [ ] Checking out the cart
