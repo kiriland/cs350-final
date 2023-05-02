@@ -18,19 +18,23 @@ INDEX login (pass, email)
 CREATE TABLE products (
 product_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
 product_title VARCHAR(30) NOT NULL,
-product_img VARCHAR(120) NOT NULL,
-product_description VARCHAR(150) NOT NULL,
+product_category VARCHAR(30) NOT NULL,
+product_img VARCHAR(200) NOT NULL,
+product_description VARCHAR(22) NOT NULL,
 product_price decimal(6,2) NOT NULL,
 PRIMARY KEY (product_id)
 ) ENGINE = INNODB;
 
-INSERT INTO products (product_title, product_img, product_description, product_price) VALUES
-('Persian Cucumbers', 'https://www.bestfreshinc.com/wp-content/uploads/2017/09/Persian-Cucumbers-1.jpg', 'Fresh and crisp', 2.99),
-('Vine Tomatoes', 'https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg', 'Juicy and ripe vine tomatoes', 3.49),
-('Celery', 'http://gastronomt.ru/upload/iblock/15c/46302.jpg', 'Crunchy and flavorful celery stalks', 1.99),
-('Organic Avocados', 'https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033', 'Creamy and delicious', 4.99),
-('Orange Juice', 'https://i5.peapod.com/c/L6/L653H.png', 'Freshly squeezed orange juice', 4.99),
-('Pears', 'https://askthefoodgeek.com/wp-content/uploads/2017/02/pears-in-season.jpg', 'Juicy and sweet pears', 2.49),
-('Eggs', 'https://live.staticflickr.com/4854/46699166472_4613e6a95d_b.jpg', 'Farm-fresh eggs', 1.99),
-('Yellow Corn', 'https://cdn.shopify.com/s/files/1/0271/6634/3237/products/goldcorn_720x.jpg?v=1614395321', 'Sweet and crunchy yellow corn', 0.99),
-('Lemons', 'https://images.heb.com/is/image/HEBGrocery/000375185', 'Tart and zesty lemons', 1.49);
+INSERT INTO products (product_title, product_category, product_img, product_description, product_price) VALUES
+('Persian Cucumbers', 'Produce', 'https://www.bestfreshinc.com/wp-content/uploads/2017/09/Persian-Cucumbers-1.jpg', 'Fresh and crisp', 2.99),
+('Vine Tomatoes', 'Produce', 'https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg', 'Juicy and ripe', 3.49),
+('Celery', 'Produce', 'http://gastronomt.ru/upload/iblock/15c/46302.jpg', 'Crunchy and flavorful', 1.99),
+('Organic Avocados', 'Produce', 'https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033', 'Creamy and delicious', 4.99),
+('Pears', 'Produce', 'https://askthefoodgeek.com/wp-content/uploads/2017/02/pears-in-season.jpg', 'Sweet pears', 2.49),
+('Eggs', 'Produce', 'https://live.staticflickr.com/4854/46699166472_4613e6a95d_b.jpg', 'Farm-fresh eggs', 1.99),
+('Yellow Corn', 'Produce', 'https://cdn.shopify.com/s/files/1/0271/6634/3237/products/goldcorn_720x.jpg?v=1614395321', 'Super crunchy', 0.99),
+('Lemons', 'Produce', 'https://images.heb.com/is/image/HEBGrocery/000375185', 'Tart and zesty', 1.49),
+('Blueberry Muffin', 'Bakery', 'https://www.scooterscoffee.com/media/catalog/product/cache/9d8e01fde6b4abf2b84ef6b387a4952d/b/l/blueberry-muffin.png', 'Freshly baked', 2.99),
+('Chocolate Croissant', 'Bakery', 'https://cdn.shopify.com/s/files/1/0495/4839/4645/products/Copyofoobforshopifyssc_5000x.png?v=1643288749', 'Buttery croissant', 1.99),
+('Cinnamon Roll', 'Bakery', 'https://s7d1.scene7.com/is/image/mcdonalds/DC_202109_1557_CinnamonRoll_832x472:1-3-product-tile-desktop?wid=765&hei=472&dpr=off', 'With cream frosting', 3.49),
+('Baguette', 'Bakery', 'https://panamarbakery.com/public/Image/2021/3/13954_1baguetteclsica250g37uds250g_Galeria.png', 'Delicious baguette', 2.49);

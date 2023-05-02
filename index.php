@@ -51,63 +51,17 @@ if(!isset($_SESSION['user_id'])){
 						<h3>Produce</h3>
 						<div class="container text-center">
 							<div class="row row-cols-1 row-cols-md-6 g-1">
+								<!-- Produce Items go here -->
 							</div>
 						</div>
 					</div>
 				</div>
                 <div class="row align-items-start">
-                    <div class="col">
-                        <h3>Meats & Fish</h3>
+                    <div class="col" id="bakery">
+                        <h3>Bakery</h3>
                         <div class="container text-center">
-                            <div class="card-group">
-                                <div class="card"> <img src="https://www.bestfreshinc.com/wp-content/uploads/2017/09/Persian-Cucumbers-1.jpg" class="card-img-top product-image-med" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Persian Cucumbers</h5>
-                                        <p class="card-text">Description</p>
-                                        <p class="card-text"><small class="text-body-secondary">1 lb</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class="card"> <img src="https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg" width="200" height="auto" class="card-img-top product-image-med" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Vine Tomatoes</h5>
-                                        <p class="card-text">Description</p>
-                                        <p class="card-text"><small class="text-body-secondary">1.5 lb</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class="card"> <img src="https://thegrocerybag.co.uk/wp-content/uploads/2020/08/VINE-TOMATO.jpg" width="200" height="auto" class="card-img-top product-image-med" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Vine Tomatoes</h5>
-                                        <p class="card-text">Description</p>
-                                        <p class="card-text"><small class="text-body-secondary">1.5 lb</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class="card"> <img src="http://gastronomt.ru/upload/iblock/15c/46302.jpg" class="card-img-top product-image-med" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Celery</h5>
-                                        <p class="card-text">Description</p>
-                                        <p class="card-text"><small class="text-body-secondary">24 oz </small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Organic Avocados</h5>
-                                        <p class="card-text">Description</p>
-                                        <p class="card-text"><small class="text-body-secondary">4 cts</small></p>
-										<button type="button" class="btn btn-primary btn-sm">Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class="card"> <img src="https://cdn.shopify.com/s/files/1/0367/4642/8547/products/awokado-hass.jpg?v=1603762033" class="card-img-top product-image-med" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Organic Avocados</h5>
-                                        <p class="card-text">Description</p>
-                                        <p class="card-text"><small class="text-body-secondary">4 cts</small></p>
-										<button type="button" id="boo" class="btn btn-primary btn-sm">Add to cart</button>
-                                    </div>
-                                </div>
+                            <div class="row row-cols-1 row-cols-md-6 g-1">
+                                <!-- Bakery Items go here -->
                             </div>
                         </div>
                     </div>
@@ -120,8 +74,11 @@ if(!isset($_SESSION['user_id'])){
 </body>
 <script language="javascript">
 //Dynamically load the products on the page.
-$.ajax({url: "checkout.php",type:'GET',data: { function: "getProducts"}}).done(function( html ) {
+$.ajax({url: "checkout.php",type:'GET',data: { function: "getProduce"}}).done(function( html ) {
     $("#produce > .container > .row").append(html);
+});
+$.ajax({url: "checkout.php",type:'GET',data: { function: "getBakery"}}).done(function( html ) {
+    $("#bakery > .container > .row").append(html);
 });
 
 //When clicked on add to cart, perform actions.
