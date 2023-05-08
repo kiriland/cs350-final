@@ -7,11 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $LName = $_POST['lastname'];
   $Email = $_POST['email'];
   $query = "INSERT INTO users (username, pass, first_name, last_name, email) VALUES 
-  ('{$Username}', SHA1('{$Pass}'), '{$FName}', '{$LName}', '{$Email}')";
-  if (mysqli_query($dbc, $query)) {
+  ('{$Username}', SHA1('{$Password}'), '{$FName}', '{$LName}', '{$Email}')";
+
+  try {
+    mysqli_query($dbc, $query);
     echo "Successfuly Registered a new user! Welcome, {$Username}!";
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($dbc);
+  } catch (Exception $e) {
+    if (str_contains($e, "Duplicate entry")) {
+      echo "The account you specified is already registered!";
+    }
   }
   mysqli_close($dbc);
 }
@@ -74,7 +78,6 @@ input{
       
 		<h1>Create account</h1>
       <form method="post" action="register.php">
-        <?php echo $LName;?>
         <label for="firstname"><p>First Name</p></label>
         <input type="text" name="firstname" placeholder="Enter your first name">
         <label for="lastname"><p>Last Name</p></label>
@@ -85,8 +88,6 @@ input{
         <input type="text" name="username" placeholder="Enter your username">
         <label for="password"><p>Password</p></label>
         <input type="password" name="password" placeholder="Enter your password">
-        <label for="password"><p>Re-enter Password</p></label>
-        <input type="password" placeholder="Re-enter password">
         <input type="submit" class="button" value="Register">
         <p>Already have an account? <a href="login.php">Sign In Here</a></p>
       </form>

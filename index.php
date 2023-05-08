@@ -75,7 +75,7 @@ if (!isset($_SESSION["user_id"])) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Checkout</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='/checkout.php';">Checkout</button>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@ if (!isset($_SESSION["user_id"])) {
 <script language="javascript">
 //Dynamically load the products on the page.
 $.ajax({
-    url: "checkout.php",
+    url: "utility.php",
     type: 'GET',
     data: {
         function: "getProduce"
@@ -122,7 +122,7 @@ $.ajax({
 });
 
 $.ajax({
-    url: "checkout.php",
+    url: "utility.php",
     type: 'GET',
     data: {
         function: "getBakery"
@@ -132,7 +132,7 @@ $.ajax({
 });
 
 $.ajax({
-	url: 'checkout.php',
+	url: 'utility.php',
 	type: 'GET',
 	data: {
 		function: "getTotalCartNumber"
@@ -148,7 +148,7 @@ $.ajax({
 $(document.body).on('click', '.btn-sm', function() { //When clicked on add to cart, perform actions.
     var productID = $(this).attr('id');
     $.ajax({
-        url: 'checkout.php',
+        url: 'utility.php',
         type: 'POST',
         data: {
             function: "addToCart",
@@ -156,7 +156,7 @@ $(document.body).on('click', '.btn-sm', function() { //When clicked on add to ca
         },
     });
     $.ajax({
-        url: 'checkout.php',
+        url: 'utility.php',
         type: 'GET',
         data: {
             function: "getTotalCartNumber"
@@ -171,7 +171,7 @@ $(document.body).on('click', '.btn-sm', function() { //When clicked on add to ca
 
 $(document.body).on('click', '#cart-button', function() {
     $.ajax({
-        url: "checkout.php",
+        url: "utility.php",
         type: 'GET',
         data: {
             function: "getCart"
@@ -184,7 +184,7 @@ $(document.body).on('click', '#cart-button', function() {
 $(document.body).on('click', '.fa-trash-alt', function() {
     var productID = $(this).data("id");
     $.ajax({
-        url: "checkout.php",
+        url: "utility.php",
         type: 'POST',
         data: {
             function: "deleteProduct",
@@ -195,7 +195,7 @@ $(document.body).on('click', '.fa-trash-alt', function() {
         }
     });
     $.ajax({
-        url: 'checkout.php',
+        url: 'utility.php',
         type: 'GET',
         data: {
             function: "getTotalCartNumber"
