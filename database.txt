@@ -38,3 +38,22 @@ INSERT INTO products (product_title, product_category, product_img, product_desc
 ('Chocolate Croissant', 'Bakery', 'https://cdn.shopify.com/s/files/1/0495/4839/4645/products/Copyofoobforshopifyssc_5000x.png?v=1643288749', 'Buttery croissant', 1.99),
 ('Cinnamon Roll', 'Bakery', 'https://s7d1.scene7.com/is/image/mcdonalds/DC_202109_1557_CinnamonRoll_832x472:1-3-product-tile-desktop?wid=765&hei=472&dpr=off', 'With cream frosting', 3.49),
 ('Baguette', 'Bakery', 'https://panamarbakery.com/public/Image/2021/3/13954_1baguetteclsica250g37uds250g_Galeria.png', 'Delicious baguette', 2.49);
+
+INSERT INTO products (product_title, product_category, product_img, product_description, product_price) VALUES
+('Apples','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/ROYAL-GALA-APPLES-4PK.jpg','Crisp and juicy',1.75),
+('Bananas','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/banana-1.jpg','Organic and sweet', 1.50),
+('Green Cabbage', 'Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/Green-Cabbage.jpg', 'Fresh and crunchy', 1.99),
+('Mango', 'Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/KESAR-MANGO-BIG-BOX-12S.jpg', 'Exquisite and juicy', 2.49),
+('Eggplant', 'Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/AUBERGINE.jpg', 'Flavorful',2.99),
+('Green grapes', 'Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/green-grapes-1.jpg', 'Sweet and juicy',1.99),
+('Red grapes', 'Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/RED-GRAPES-PUNNET.jpg', 'Sweet and juicy', 1.99),
+('Red Onion','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/RED-ONION-3S-1.jpg','Fresh and flavorful',1.49), 
+('Spinach','Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/SPINACH-BUNCH-1.jpg','Nutrient-packed',1.99),
+('White Potatoes(Each)','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/White-Potatoes.jpg','Freshly grown',0.59),
+('Chocolate Chip Cookie', 'Bakery','https://www.scooterscoffee.com/media/catalog/product/cache/c2946e4773a83dd72a8f7b0af732da18/c/c/cccookie__600x600.png','Homemade',0.99),
+('Cheesecake','Bakery','https://cdn.shopify.com/s/files/1/2530/7762/products/7041-ny-cheesecake-0010_900x900.jpg?v=1571713009','Delicious',8.99),
+(‘Chocolate Lava Cake','Bakery','https://cdn.shopify.com/s/files/1/2530/7762/products/7038-chocolate-lava-cake-0022_900x900.jpg?v=1646711979','Velvety chocolate',4.99),
+('Croissant with Hazelnuts','Bakery', 'https://panamarbakery.com/public/Image/2023/2/130341croisant_choco_margarina_Normal.png','Chocolate cream inside',1.99),
+('Sliced bread','Bakery','https://panamarbakery.com/public/Image/2021/3/161547603912167normal_Normal.png','Whole Wheat',1.49),
+('Red Velvet Muffin','Bakery','https://panamarbakery.com/public/Image/2023/2/130274-muffin_red_velvet_3611_Normal.png', 'Freshly baked',3.50),
+('Mini Croissant','Bakery', 'https://panamarbakery.com/public/Image/2022/3/130436-minicroissantsingluten_7374_Grande.png','Comes in packaging',0.99);
