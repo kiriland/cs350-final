@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['cart'] = array();
+            $_SESSION['total_price'] = 0;
             header('Location: /index.php');
             die;
         }else {

@@ -66,9 +66,36 @@ function fetchCartItems($cart){
 </div>';
     }
     $html .= '<p class="fs-4">Total: <span class="text-end">$'. $totalPrice .'</span></p>';
+    $_SESSION['total_price'] = $totalPrice;
     mysqli_close($dbc);
     return $html;
 }
+
+function fetchCheckoutCart ($cart){
+  require 'mysqli_connect.php';
+  $html = '';
+  foreach( $cart as $item => $value ){ 
+      $query = 'SELECT product_title, product_img,product_price,product_id FROM products  WHERE product_id ='. $item;
+      $result = mysqli_query($dbc, $query);
+      $row = mysqli_fetch_assoc($result);
+      $img = htmlspecialchars($row['product_img']);
+      $title = htmlspecialchars($row['product_title']);
+      $price = htmlspecialchars($row['product_price']);
+      $id = htmlspecialchars($row['product_id']);
+      $totalPrice = $price * $value;
+      $html .= "<li class='list-group-item d-flex justify-content-between lh-sm'>
+      <div>
+      <h6 class='my-0'>{$title}</h6>
+      <small class='text-body-secondary'>Brief description</small>
+      </div>
+      <span class='text-body-secondary'>{$totalPrice}</span>
+      </li>";
+  }
+  // $html .= '<p class="fs-4">Total: <span class="text-end">$'. $totalPrice .'</span></p>';
+  mysqli_close($dbc);
+  return $html;
+}
+
 session_start();
 if ($_SESSION['user_id'] && $_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['function'] === 'addToCart' ) {
@@ -104,6 +131,9 @@ if ($_SESSION['user_id'] && $_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         echo $totalItems ; 
     }
+    if ($_GET['function'] === 'fetchCheckoutCart' ) {
+      echo fetchCheckoutCart($_SESSION['cart']);
+  }
    
 }
 ?>
