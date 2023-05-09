@@ -75,18 +75,17 @@ function fetchCheckoutCart ($cart){
   require 'mysqli_connect.php';
   $html = '';
   foreach( $cart as $item => $value ){ 
-      $query = 'SELECT product_title, product_img,product_price,product_id FROM products  WHERE product_id ='. $item;
+      $query = 'SELECT product_title, product_description,product_price,product_id FROM products  WHERE product_id ='. $item;
       $result = mysqli_query($dbc, $query);
       $row = mysqli_fetch_assoc($result);
-      $img = htmlspecialchars($row['product_img']);
       $title = htmlspecialchars($row['product_title']);
       $price = htmlspecialchars($row['product_price']);
-      $id = htmlspecialchars($row['product_id']);
+      $description = htmlspecialchars($row['product_description']);
       $totalPrice = $price * $value;
       $html .= "<li class='list-group-item d-flex justify-content-between lh-sm'>
       <div>
       <h6 class='my-0'>{$title}</h6>
-      <small class='text-body-secondary'>Brief description</small>
+      <small class='text-body-secondary'>{$description}</small>
       </div>
       <span class='text-body-secondary'>{$totalPrice}</span>
       </li>";
