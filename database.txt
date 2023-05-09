@@ -52,7 +52,7 @@ INSERT INTO products (product_title, product_category, product_img, product_desc
 ('White Potatoes(Each)','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/White-Potatoes.jpg','Freshly grown',0.59),
 ('Chocolate Chip Cookie', 'Bakery','https://www.scooterscoffee.com/media/catalog/product/cache/c2946e4773a83dd72a8f7b0af732da18/c/c/cccookie__600x600.png','Homemade',0.99),
 ('Cheesecake','Bakery','https://cdn.shopify.com/s/files/1/2530/7762/products/7041-ny-cheesecake-0010_900x900.jpg?v=1571713009','Delicious',8.99),
-(‘Chocolate Lava Cake','Bakery','https://cdn.shopify.com/s/files/1/2530/7762/products/7038-chocolate-lava-cake-0022_900x900.jpg?v=1646711979','Velvety chocolate',4.99),
+('Chocolate Lava Cake','Bakery','https://cdn.shopify.com/s/files/1/2530/7762/products/7038-chocolate-lava-cake-0022_900x900.jpg?v=1646711979','Velvety chocolate',4.99),
 ('Croissant with Hazelnuts','Bakery', 'https://panamarbakery.com/public/Image/2023/2/130341croisant_choco_margarina_Normal.png','Chocolate cream inside',1.99),
 ('Sliced bread','Bakery','https://panamarbakery.com/public/Image/2021/3/161547603912167normal_Normal.png','Whole Wheat',1.49),
 ('Red Velvet Muffin','Bakery','https://panamarbakery.com/public/Image/2023/2/130274-muffin_red_velvet_3611_Normal.png', 'Freshly baked',3.50),
