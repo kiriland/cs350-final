@@ -120,6 +120,14 @@ if ($_SESSION['user_id'] && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $query = "SELECT product_id,product_title, product_img, product_description, product_price FROM products  WHERE product_category = 'Bakery'";
         echo fetchProducts($query);
     }
+    if ($_GET['function'] === 'getBeverages') {
+      $query = "SELECT product_id,product_title, product_img, product_description, product_price FROM products  WHERE product_category = 'Beverages'";
+      echo fetchProducts($query);
+    }
+    if ($_GET['function'] === 'getMeats') {
+      $query = "SELECT product_id,product_title, product_img, product_description, product_price FROM products  WHERE product_category = 'Meats'";
+      echo fetchProducts($query);
+    }
     if ($_GET['function'] === 'getCart') {
         echo fetchCartItems($_SESSION['cart']);
     }

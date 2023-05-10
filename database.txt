@@ -57,3 +57,12 @@ INSERT INTO products (product_title, product_category, product_img, product_desc
 ('Sliced bread','Bakery','https://panamarbakery.com/public/Image/2021/3/161547603912167normal_Normal.png','Whole Wheat',1.49),
 ('Red Velvet Muffin','Bakery','https://panamarbakery.com/public/Image/2023/2/130274-muffin_red_velvet_3611_Normal.png', 'Freshly baked',3.50),
 ('Mini Croissant','Bakery', 'https://panamarbakery.com/public/Image/2022/3/130436-minicroissantsingluten_7374_Grande.png','Comes in packaging',0.99);
+
+
+('Orange Juice','Beverages','https://www.floridacitrus.org/oj/wp-content/uploads/sites/2/2022/08/Minute-maid-1.png','100% Natural',5.49),
+('Green Tea','Beverages','https://www.freshdirect.com/media/images/product/dairy_19/dai_pid_2002469_j.jpg?lastModify=2023-02-21','Plastic bottle',2.99),
+('Smart Water','Beverages','https://www.freshdirect.com/media/images/product/specialty_11/spe_glaceau_wtrsmrt_cs_j.jpg?lastModify=2023-03-21','Plastic Bottles',11.99),
+('Cran Mango Juice','Beverages','https://www.freshdirect.com/media/images/product/grocery_56/gro_pid_4018869_z.jpg?lastModify=2022-11-15&publishId=3202','Juice,Plastic bottle',4.39),
+('Petite Beef Filet','Meats','https://www.freshdirect.com/media/images/product/meat_3/mea_ptflt_bf_z.jpg?lastModify=2021-03-24&publishId=3202','',15.99),
+('Thin Sliced Pork Chops','Meats','https://www.freshdirect.com/media/images/product/meat_3/mea_pid_3335266_z.jpg?lastModify=2022-05-13&publishId=3202','',4.99),
+('Lamb Rib Chops','Meats','https://www.freshdirect.com/media/images/product/meat_2/mea_pid_3330082_z.jpg?lastModify=2016-09-09&publishId=3202','',10.99);
