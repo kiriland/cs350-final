@@ -38,8 +38,6 @@ INSERT INTO products (product_title, product_category, product_img, product_desc
 ('Chocolate Croissant', 'Bakery', 'https://cdn.shopify.com/s/files/1/0495/4839/4645/products/Copyofoobforshopifyssc_5000x.png?v=1643288749', 'Buttery croissant', 1.99),
 ('Cinnamon Roll', 'Bakery', 'https://s7d1.scene7.com/is/image/mcdonalds/DC_202109_1557_CinnamonRoll_832x472:1-3-product-tile-desktop?wid=765&hei=472&dpr=off', 'With cream frosting', 3.49),
 ('Baguette', 'Bakery', 'https://panamarbakery.com/public/Image/2021/3/13954_1baguetteclsica250g37uds250g_Galeria.png', 'Delicious baguette', 2.49);
-
-INSERT INTO products (product_title, product_category, product_img, product_description, product_price) VALUES
 ('Apples','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/ROYAL-GALA-APPLES-4PK.jpg','Crisp and juicy',1.75),
 ('Bananas','Produce','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/banana-1.jpg','Organic and sweet', 1.50),
 ('Green Cabbage', 'Produce', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://thegrocerybag.co.uk/wp-content/uploads/2020/08/Green-Cabbage.jpg', 'Fresh and crunchy', 1.99),
@@ -57,8 +55,6 @@ INSERT INTO products (product_title, product_category, product_img, product_desc
 ('Sliced bread','Bakery','https://panamarbakery.com/public/Image/2021/3/161547603912167normal_Normal.png','Whole Wheat',1.49),
 ('Red Velvet Muffin','Bakery','https://panamarbakery.com/public/Image/2023/2/130274-muffin_red_velvet_3611_Normal.png', 'Freshly baked',3.50),
 ('Mini Croissant','Bakery', 'https://panamarbakery.com/public/Image/2022/3/130436-minicroissantsingluten_7374_Grande.png','Comes in packaging',0.99);
-
-
 ('Orange Juice','Beverages','https://www.floridacitrus.org/oj/wp-content/uploads/sites/2/2022/08/Minute-maid-1.png','100% Natural',5.49),
 ('Green Tea','Beverages','https://www.freshdirect.com/media/images/product/dairy_19/dai_pid_2002469_j.jpg?lastModify=2023-02-21','Plastic bottle',2.99),
 ('Smart Water','Beverages','https://www.freshdirect.com/media/images/product/specialty_11/spe_glaceau_wtrsmrt_cs_j.jpg?lastModify=2023-03-21','Plastic Bottles',11.99),
@@ -66,3 +62,20 @@ INSERT INTO products (product_title, product_category, product_img, product_desc
 ('Petite Beef Filet','Meats','https://www.freshdirect.com/media/images/product/meat_3/mea_ptflt_bf_z.jpg?lastModify=2021-03-24&publishId=3202','',15.99),
 ('Thin Sliced Pork Chops','Meats','https://www.freshdirect.com/media/images/product/meat_3/mea_pid_3335266_z.jpg?lastModify=2022-05-13&publishId=3202','',4.99),
 ('Lamb Rib Chops','Meats','https://www.freshdirect.com/media/images/product/meat_2/mea_pid_3330082_z.jpg?lastModify=2016-09-09&publishId=3202','',10.99);
+
+CREATE TABLE orders (
+order_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+user_id MEDIUMINT UNSIGNED NOT NULL,
+order_date DATE,
+ShipName VARCHAR(40) NOT NULL,
+ShipAddress VARCHAR(30) NOT NULL,
+ShipCity VARCHAR(200) NOT NULL,
+ShipState VARCHAR(22) NOT NULL,
+ShipZip VARCHAR(22) NOT NULL,
+ShipCountry VARCHAR(22) NOT NULL,
+product_price decimal(6,2) NOT NULL,
+PRIMARY KEY (order_id),
+INDEX (order_date),
+INDEX (ShipZip),
+FOREIGN KEY (user_id) REFERENCES users (user_id)
+) ENGINE = INNODB;

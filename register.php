@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
     mysqli_query($dbc, $query);
     echo "Successfuly Registered a new user! Welcome, {$Username}!";
+    sleep(1);
+    header('Location: /login.php');
   } catch (Exception $e) {
     if (str_contains($e, "Duplicate entry")) {
       echo "The account you specified is already registered!";
