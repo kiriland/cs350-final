@@ -1,4 +1,32 @@
 <?php session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
+require 'mysql_connect.php';
+$Name = $_POST['username'];
+$Address = $_POST['address'];
+$City = $_POST['city'];
+$State = $_POST['state'];
+$Zip = $_POST['zip'];
+$Country= $_POST['country'];
+$query = "INSERT INTO orders (ShipAddress, ShipCity, ShipState, ShipZip, ShipCountry) VALUES
+('{$Name}', '{$Address}', '{$City}', '{$State}', '{$Zip}','{$Country}')";
+$result = mysqli_query($dbc, $query);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    echo "Success! Order Confirmed";
+    $_SESSION['order_id'] = $row['order_id'];
+    $_SESSION['user_id'] = $row['user_id'];
+    $_SESSION['order_date'] = $row['order_date'];
+    die;
+    }
+    else{
+      echo "Error"
+    }
+
+mysqli_close($dbc);
+
+
+}
 
 ?>
 <!doctype html>
