@@ -29,6 +29,9 @@ if (!isset($_SESSION["user_id"])) {
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Shop Online</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/orders.php">My Orders</a>
+            </li>
           </ul>
           <ul class="navbar-nav ms-md-auto">
             <button type="button" class="btn btn-outline-primary" id="cart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Cart <span class="cart-itemNumber"> </span>
