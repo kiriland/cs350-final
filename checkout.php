@@ -12,13 +12,14 @@ $query = "INSERT INTO orders (user_id,order_date,ShipName,ShipAddress, ShipCity,
   try {
     mysqli_query($dbc, $query);
     echo "Success! Order Confirmed";
+    $_SESSION['cart'] = array();
+    $_SESSION['total_price'] = 0;
+    mysqli_close($dbc);
+    header('Location: /orders.php');
   } catch (Exception $e) {
-    if (str_contains($e, "Duplicate entry")) {
-      echo "The account you specified is already registered!";
-    }
+    echo $e;
+    mysqli_close($dbc);
   }
-mysqli_close($dbc);
-
 
 }
 
@@ -29,10 +30,7 @@ mysqli_close($dbc);
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.111.3">
-    <title>Checkout example · Bootstrap v5.3</title>
+    <title>Checkout</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
@@ -181,9 +179,57 @@ mysqli_close($dbc);
             <div class="col-md-3">
               <label for="state" class="form-label">State</label>
               <select class="form-select" id="state" name="state" required>
-                <option value="">Choose...</option>
-                <option>California</option>
-              </select>
+  <option value="">Choose...</option>
+  <option>Alabama</option>
+  <option>Alaska</option>
+  <option>Arizona</option>
+  <option>Arkansas</option>
+  <option>Colorado</option>
+  <option>Connecticut</option>
+  <option>Delaware</option>
+  <option>Florida</option>
+  <option>Georgia</option>
+  <option>Hawaii</option>
+  <option>Idaho</option>
+  <option>Illinois</option>
+  <option>Indiana</option>
+  <option>Iowa</option>
+  <option>Kansas</option>
+  <option>Kentucky</option>
+  <option>Louisiana</option>
+  <option>Maine</option>
+  <option>Maryland</option>
+  <option>Massachusetts</option>
+  <option>Michigan</option>
+  <option>Minnesota</option>
+  <option>Mississippi</option>
+  <option>Missouri</option>
+  <option>Montana</option>
+  <option>Nebraska</option>
+  <option>Nevada</option>
+  <option>New Hampshire</option>
+  <option>New Jersey</option>
+  <option>New Mexico</option>
+  <option>New York</option>
+  <option>North Carolina</option>
+  <option>North Dakota</option>
+  <option>Ohio</option>
+  <option>Oklahoma</option>
+  <option>Oregon</option>
+  <option>Pennsylvania</option>
+  <option>Rhode Island</option>
+  <option>South Carolina</option>
+  <option>South Dakota</option>
+  <option>Tennessee</option>
+  <option>Texas</option>
+  <option>Utah</option>
+  <option>Vermont</option>
+  <option>Virginia</option>
+  <option>Washington</option>
+  <option>West Virginia</option>
+  <option>Wisconsin</option>
+  <option>Wyoming</option>
+</select>
               <div class="invalid-feedback">
                 Please provide a valid state.
               </div>

@@ -76,44 +76,16 @@ if (!isset($_SESSION["user_id"])) {
       <main>
         <div class="container-xxl">
           <div class="row align-items-start">
-            <div class="col" id="produce">
-              <h3>Produce</h3>
+            <div class="col" id="pastOrders">
+              <h3>Your Past Orders</h3>
               <div class="container text-center">
                 <div class="row row-cols-1 row-cols-md-6 g-1">
-                  <!-- Produce Items go here -->
+                  <!-- Past Orders go here -->
+
                 </div>
               </div>
             </div>
           </div>
-          <div class="row align-items-start">
-            <div class="col" id="bakery">
-              <h3>Bakery</h3>
-              <div class="container text-center">
-                <div class="row row-cols-1 row-cols-md-6 g-1">
-                  <!-- Bakery Items go here -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-start">
-            <div class="col" id="beverages">
-              <h3>Beverages</h3>
-              <div class="container text-center">
-                <div class="row row-cols-1 row-cols-md-6 g-1">
-                  <!--Beverages Items go here-->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-start">
-            <div class="col" id="meats">
-              <h3>Meats</h3>
-              <div class="container text-center">
-                <div class="row row-cols-1 row-cols-md-6 g-1">
-                  <!--Meat items go here-->
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </main>
@@ -126,42 +98,15 @@ $.ajax({
     url: "utility.php",
     type: 'GET',
     data: {
-        function: "getProduce"
+        function: "getPastOrders"
     }
 }).done(function(html) {
-    $("#produce > .container > .row").append(html);
+    $("#pastOrders > .container > .row").append(html);
 });
 
-$.ajax({
-    url: "utility.php",
-    type: 'GET',
-    data: {
-        function: "getBakery"
-    }
-}).done(function(html) {
-    $("#bakery > .container > .row").append(html);
-});
 
-$.ajax({
-    url: "utility.php",
-    type: 'GET',
-    data: {
-        function: "getBeverages"
-    }
-}).done(function(html) {
-    $("#beverages > .container > .row").append(html);
-});
 
-$.ajax({
-    url: "utility.php",
-    type: 'GET',
-    data: {
-        function: "getMeats"
-    }
-}).done(function(html) {
-    $("#meats > .container > .row").append(html);
-});
-
+//Below only cart functionality
 $.ajax({
 	url: 'utility.php',
 	type: 'GET',
@@ -173,31 +118,6 @@ $.ajax({
 			$(this).text(data);
 		});
 	}
-});
-
-
-$(document.body).on('click', '.btn-sm', function() { //When clicked on add to cart, perform actions.
-    var productID = $(this).attr('id');
-    $.ajax({
-        url: 'utility.php',
-        type: 'POST',
-        data: {
-            function: "addToCart",
-            productID: productID
-        },
-    });
-    $.ajax({
-        url: 'utility.php',
-        type: 'GET',
-        data: {
-            function: "getTotalCartNumber"
-        },
-        success: function(data) {
-            $('.cart-itemNumber').each(function() {
-                $(this).text(data);
-            });
-        }
-    });
 });
 
 $(document.body).on('click', '#cart-button', function() {

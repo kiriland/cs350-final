@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['cart'] = array();
             $_SESSION['total_price'] = 0;
             header('Location: /index.php');
+            mysqli_close($dbc);
             die;
         }else {
             echo "Wrong username or password! Try again";
