@@ -261,14 +261,14 @@ mysqli_close($dbc);
 
           <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Place your order</button>
         </form>
       </div>
     </div>
   </main>
 
   <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-    <p class="mb-1">&copy; 2017–2023 Company Name</p>
+    <p class="mb-1">&copy; 2023 GreenBean Grocery</p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/index.php">Main Page</a></li>
      
