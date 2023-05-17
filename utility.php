@@ -57,7 +57,7 @@ function fetchCartItems($cart){
         </div>
         <div style="width: 80px;">
           <h5 class="mb-0">$';
-        $html .= $totalPrice  . '</h5>
+        $html .= $price * $quantity  . '</h5>
         </div>
         <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt" data-id="'. $id .'"></i></a>
       </div>
